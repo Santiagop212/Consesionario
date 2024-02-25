@@ -20,7 +20,7 @@ jobs:
       run: docker build -t Prueba_m .
 
     - name: Etiquetar imagen Docker
-      run: docker tag Prueba_m consesionario:latest
+      run: docker tag prueba_m consesionario:latest
 
     - name: Empujar imagen Docker a Docker Hub
       run: docker push consesionario:latest
