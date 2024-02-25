@@ -3,6 +3,7 @@ package com.api.consesionario;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+//consesionario = concesionario
 @SpringBootApplication
 public class ConsesionarioApplication {
 
