@@ -2,8 +2,8 @@
 FROM openjdk:11
 
 # Copia el archivo JAR de la aplicación construida en el contenedor
-COPY target/concesionario.jar /app/concesionario.jar
-
+COPY out/artifacts/consesionario_jar/consesionario.jar /app/consesionario.jar
+#target/consesionario.jar /app/consesionario.jar
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
@@ -11,4 +11,4 @@ WORKDIR /app
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación Spring Boot al iniciar el contenedor
-CMD ["java", "-jar", "tu-aplicacion.jar"]
+CMD ["java", "-jar", "consesionario.jar"]
