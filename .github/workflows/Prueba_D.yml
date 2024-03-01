@@ -20,7 +20,7 @@ jobs:
       run: docker build -t Prueba_D .
 
     - name: Etiquetar imagen Docker
-      run: docker tag Prueba_D santiago725/consesionario:desarrollo 
+      run: docker tag Prueba_D santiago725/consesionario:desarrollo
 
     - name: Empujar imagen Docker a Docker Hub
-      run: docker push santiago725/consesionario:desarrollo 
+      run: docker push santiago725/consesionario:desarrollo
