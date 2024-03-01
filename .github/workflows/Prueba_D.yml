@@ -17,10 +17,10 @@ jobs:
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Construir imagen Docker
-      run: docker build -t prueba_m .
+      run: docker build -t Prueba_D .
 
     - name: Etiquetar imagen Docker
-      run: docker tag prueba_m santiago725/consesionario:latest
+      run: docker tag Prueba_D santiago725/consesionario:desarrollo 
 
     - name: Empujar imagen Docker a Docker Hub
-      run: docker push santiago725/consesionario:latest
+      run: docker push santiago725/consesionario:desarrollo 
