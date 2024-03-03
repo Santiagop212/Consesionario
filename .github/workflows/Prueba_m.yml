@@ -13,6 +13,12 @@ jobs:
     - name: Checkout código
       uses: actions/checkout@v2
 
+    - name: Instalación de dependencias
+      run: npm install
+
+    - name: Ejecución de pruebas
+      run: npm test	
+
     - name: Iniciar Docker
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
