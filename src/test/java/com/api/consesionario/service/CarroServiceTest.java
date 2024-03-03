@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.lang.reflect.Array;
@@ -31,7 +32,7 @@ class CarroServiceTest {
         MockitoAnnotations.initMocks(this);
 
         carro = new Carro();
-        //carro.setId_Carro(new Long());
+        //carro.setId_Carro(new Long(value));
         carro.setMarca("Mercedes");
         carro.setModelo("Clase S");
         carro.setSerie("W223");
@@ -58,5 +59,17 @@ class CarroServiceTest {
     void updateCarro(){
         when(carroRepository.save(any(Carro.class))).thenReturn((carro));
         assertNotNull(carroService.updateCarro(new Carro()));
+    }
+
+    @Test
+    void deleteCarroById(){
+        Long id = 1L;
+        Mockito.doNothing().when(carroRepository).deleteById(id);
+
+        // **Ejecución:**
+        carroService.deleteCarroById(id);
+
+        // **Verificación:**
+        Mockito.verify(carroRepository).deleteById(id);
     }
 }
