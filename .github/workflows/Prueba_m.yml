@@ -15,14 +15,13 @@ jobs:
     - name: Configurar Maven
       uses: actions/setup-java@v2
       with:
-        java-version: '17'
+       java-version: '17'
 
     - name: Instalar dependencias
       run: mvn install
 
     - name: Ejecutar pruebas de Mockito
       run: mvn test -Dtest=MockitoTest
-
 
     - name: Iniciar Docker
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
