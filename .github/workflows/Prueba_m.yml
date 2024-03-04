@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Configurar Maven
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-          distribution: ubuntu-20.04
+     # - name: Configurar Maven
+      #  uses: actions/setup-java@v2
+       # with:
+        #  java-version: '17'
+         # distribution: ubuntu-20.04
 
       - name: Instalar dependencias
         run: mvn install
