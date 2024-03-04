@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Build with Maven
-      run: mvn clean install
+    - name: Install Dependencies
+      run: mvn install
 
     - name: Run Unit Tests
       run: mvn test
@@ -22,9 +22,8 @@ jobs:
     - name: Publish Artifacts
       uses: actions/upload-artifact@v2
       with:
-        artifacts: out/artifacts/consesionario_jar/consesionario.jar /app/consesionario.jar
-    - name: Checkout código
-      uses: actions/checkout@v2
+         artifacts: target/my-project-*.jar,target/site/jacoco/jacoco.xml
+
 
     - name: Iniciar Docker
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
