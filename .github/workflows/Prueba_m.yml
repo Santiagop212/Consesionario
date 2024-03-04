@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: ubuntu-latest
+          distribution: ubuntu-22.04
 
       - name: Instalar dependencias
         run: mvn install
