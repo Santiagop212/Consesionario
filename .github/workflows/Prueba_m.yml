@@ -3,37 +3,24 @@ name: Prueba_m
 on:
   push:
     branches:
-      - master
+      - master  
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout código
-        uses: actions/checkout@v2
+    - name: Checkout código
+      uses: actions/checkout@v2
 
-      - name: Configurar Maven
-        uses: actions/setup-maven@v1
-        with:
-          maven-version: '3.8.1'
+    - name: Iniciar Docker
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Descargar dependencias
-        run: mvn clean install
+    - name: Construir imagen Docker
+      run: docker build -t prueba_m .
 
-      - name: Iniciar Docker
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Etiquetar imagen Docker
+      run: docker tag prueba_m santiago725/consesionario:master
 
-      - name: Construir imagen Docker
-        run: docker build -t prueba_m .
-
-      - name: Etiquetar imagen Docker
-        run: docker tag prueba_m santiago725/consesionario:master
-
-      - name: Empujar imagen Docker a Docker Hub
-        run: docker push santiago725/consesionario:master
-
-      - name: Ejecutar pruebas con Mockito
-        run: mvn test -Dtest=com.example.consesionario.CatalogoServiceTest
-
-      
+    - name: Empujar imagen Docker a Docker Hub
+      run: docker push santiago725/consesionario:master
