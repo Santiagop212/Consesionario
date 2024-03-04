@@ -10,19 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Install Dependencies
+    - uses: actions/checkout@v2
+
+    - name: Configurar Maven
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+
+    - name: Instalar dependencias
       run: mvn install
 
-    - name: Run Unit Tests
-      run: mvn test
-
-    - name: Generate Code Coverage Report
-      run: mvn cobertura:cobertura
-
-    - name: Publish Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-         artifacts: target/my-project-*.jar,target/site/jacoco/jacoco.xml
+    - name: Ejecutar pruebas de Mockito
+      run: mvn test -Dtest=MockitoTest
 
 
     - name: Iniciar Docker
