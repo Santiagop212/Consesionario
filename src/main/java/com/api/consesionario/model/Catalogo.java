@@ -20,6 +20,7 @@ public class Catalogo {
     private int Cantidad;
     private int Precio;
     private String Tipo_Pago;
+    private String Marca;
 
 
 }
