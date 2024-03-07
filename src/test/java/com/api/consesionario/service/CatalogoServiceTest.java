@@ -34,6 +34,7 @@ class CatalogoServiceTest {
         catalogo.setCantidad(1);
         catalogo.setPrecio(120000000);
         catalogo.setTipo_Pago("tarjeta");
+        catalogo.setMarca("audi");
     }
 
     @Test
