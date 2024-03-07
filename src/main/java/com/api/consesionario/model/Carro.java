@@ -13,16 +13,17 @@ public class Carro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id_Carro;
+    public Long Id_Carro;
 
-    private String Marca;
-    private String Modelo;
-    private String Serie;
-    private String Ano_Fabricacion;
-    private String Cilindraje;
-    private String Tipo_Carroceria;
+    public String Marca;
+    public String Modelo;
+    public String Serie;
+    public String Ano_Fabricacion;
+    public String Cilindraje;
+    public String Tipo_Carroceria;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Catalogo> catalogo = new ArrayList<>();
+    public List<Catalogo> catalogo = new ArrayList<>();
+
 
 }
